@@ -5,6 +5,7 @@ module.exports = {
     // Create the flight_data_DEL_BLR table
     await queryInterface.sequelize.query(`
     CREATE TABLE "flight_data_DEL_BOM" (
+      "id" SERIAL PRIMARY KEY,
       "FlightName" text,
       "FlightCode" text,
       "DepartingCity" text,
@@ -12,7 +13,9 @@ module.exports = {
       "ArrivingCity" text,
       "ArrivingTime" text,
       "Duration" text,
-      "Price" bigint
+      "Price" bigint,
+      "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     
     INSERT INTO public."flight_data_DEL_BOM" ("FlightName","FlightCode","DepartingCity","DepartingTime","ArrivingCity","ArrivingTime","Duration","Price")
